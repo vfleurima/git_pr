@@ -15,7 +15,7 @@ module GitPr
                        })
     puts cmd.green if $verbose
     result = `#{cmd}`
-    puts result if $verbose || args[:force_print_output]
+    puts result if $verbose || args[:force_print_output] || $?.exitstatus != 0
     puts '' if $verbose
     if $?.exitstatus != 0
       args[:failure].call()

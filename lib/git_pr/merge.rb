@@ -104,7 +104,7 @@ EOS
     puts "Update branch '#{target_branch}' from remote"
     GitPr.run_command "git checkout -q #{target_branch}"
     GitPr.run_command "git pull --no-rebase --ff-only", :failure => lambda {
-      "Unable to update local target branch '#{target_branch}'. Please repair manually before continuing.".red
+      puts "Unable to update local target branch '#{target_branch}'. Please repair manually before continuing.".red
     }
 
     # If the local target branch differs from the remote target branch, they
